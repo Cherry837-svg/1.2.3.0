@@ -837,20 +837,7 @@ function updateClock() {
     }
 
 
-    const day =
-        String(
-            now.getDate()
-        ).padStart(2, '0');
-
-
-    const month =
-        String(
-            now.getMonth() + 1
-        ).padStart(2, '0');
-
-
-    const year =
-        now.getFullYear();
+    
 
 
    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -863,7 +850,29 @@ dateText.textContent = `${weekday} ${day} ${month} ${year}`;
 
 updateClock();
 
-setInterval(
+setInterval(const englishDays = [
+    'SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'
+];
+
+const hungarianDays = [
+    'Vasárnap',
+    'Hétfő',
+    'Kedd',
+    'Szerda',
+    'Csütörtök',
+    'Péntek',
+    'Szombat'
+];
+
+const germanDays = [
+    'SO', 'MO', 'DI', 'MI', 'DO', 'FR', 'SA'
+];
+
+const weekday = now.getDay();
+
+dateText.textContent =
+    `${englishDays[weekday]}/${hungarianDays[weekday]}/${germanDays[weekday]} ${day} ${month} ${year}`;
+
     updateClock,
     1000
 );
